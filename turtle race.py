@@ -1,18 +1,13 @@
-import turtle
 from turtle import Turtle, Screen
 import random
 race_on = False
-
 screen = Screen()
 screen.setup(width=500, height=400)
 user_choice = screen.textinput(prompt="which colour turtle do you think will win ?", title="make a choice")
-print(user_choice)
 screen.bgcolor('black')
 
 if user_choice:
     race_on = True
-
-color = ['red', 'blue', 'green', 'yellow', 'purple', 'orange']
 
 
 def turtles(color_name, x_start, y_start):
@@ -31,7 +26,6 @@ p4 = turtles('yellow', x_start=-230, y_start=0)
 p5 = turtles('purple', x_start=-230, y_start=30)
 p6 = turtles('orange', x_start=-230, y_start=60)
 
-
 turtles_list = [p1, p2, p3, p4, p5, p6]
 while race_on:
     for i in turtles_list:
@@ -44,5 +38,4 @@ while race_on:
                 print(f'You lost ,The winner is {i.pencolor()}')
             race_on = False
 
-
-screen.exitonclick()
+screen.bye()
