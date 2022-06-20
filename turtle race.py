@@ -3,7 +3,7 @@ import random
 race_on = False
 screen = Screen()
 screen.setup(width=500, height=400)
-user_choice = screen.textinput(prompt="which colour turtle do you think will win ?", title="make a choice")
+user_choice = screen.textinput(prompt="Which colour turtle do you think will win ?", title="Make a bet")
 screen.bgcolor('black')
 
 if user_choice:
