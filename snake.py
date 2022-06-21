@@ -14,7 +14,7 @@ screen.tracer(0)
 snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
-
+#Todo move the snake
 screen.listen()
 screen.onkey(key='w', fun=snake.up)
 screen.onkey(key='s', fun=snake.down)
@@ -34,7 +34,7 @@ while game_on:
         scoreboard.game_over()
         game_on = False
 
-    #to find if snake colloide itself
+    #todo find if snake colloide itself
     for i in snake.snakes[1:]:
         if snake.head.distance(i) < 10:
             scoreboard.game_over()
