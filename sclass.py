@@ -18,13 +18,19 @@ class Snake:
 
     def build_snake(self):
         for pos in position:
-            name = Turtle('square')
-            name.penup()
-            name.color('white')
-            name.speed(1)
-            name.shapesize(1)
-            name.goto(pos)
-            self.snakes.append(name)
+            self.full_snake(pos)
+
+    def full_snake(self, pos):
+        name = Turtle('square')
+        name.penup()
+        name.color('white')
+        name.speed(1)
+        name.shapesize(1)
+        name.goto(pos)
+        self.snakes.append(name)
+
+    def extend(self):
+        self.full_snake(self.snakes[-1].pos())
 
     def mv(self):
         for i in range(len(self.snakes) - 1, 0, -1):
@@ -48,6 +54,7 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(0)
+
 
 
 
