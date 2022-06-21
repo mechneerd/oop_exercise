@@ -1,6 +1,10 @@
 import turtle
 from turtle import Turtle, Screen
 import time
+from sclass import Snake
+from food import Food
+
+
 screen = Screen()
 screen.bgcolor('black')
 screen.title('Snake Game')
@@ -8,30 +12,25 @@ screen.setup(width=600, height=600)
 game_on = True
 screen.tracer(0)
 
-def snakes(name, x_start, y_start):
-    name = Turtle('square')
-    name.penup()
-    name.color('white')
-    name.speed('fastest')
-    name.shapesize(1)
-    name.goto(x_start, y_start)
-    return name
+snake = Snake()
+food = Food()
+
+screen.listen()
+screen.onkey(key='w',fun=snake.up)
+screen.onkey(key='s',fun=snake.down)
+screen.onkey(key='a',fun=snake.left)
+screen.onkey(key='d',fun=snake.right)
 
 
-s1 = snakes('s1', 0, 0)
-s2 = snakes('s2', -20, 0)
-s3 = snakes('s3', -40, 0)
-
-s = [s1, s2, s3]
 while game_on:
     screen.update()
     time.sleep(.1)
-    for i in range(len(s) - 1, 0, -1):
-        new_x = s[i - 1].xcor()
-        new_y = s[i - 1].ycor()
-        s[i].goto(new_x, new_y)
-    s[0].forward(20)
-    s[0].left(90)
+    snake.mv()
+    # to check distance from food to head of the snake
+    if snake.head.distance(food) < 15:
+        food.refresh()
+
+
 
 
 
